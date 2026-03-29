@@ -1,0 +1,71 @@
+# Simple Blog Post
+title: "Getting Started with YAML to Markdown"
+date: "2025-12-01"
+author: "Christopher Baker"
+
+# Featured image
+featured_image:
+  src: "https://via.placeholder.com/800x400/3498DB/FFFFFF?text=Blog+Header"
+  alt: "Blog post header image"
+  width: 800
+
+# Post content
+intro: "Learn how to convert YAML files to beautiful Markdown documents with this comprehensive guide."
+
+sections:
+  what_is_yaml:
+    title: "What is YAML?"
+    content: "YAML (YAML Ain't Markup Language) is a human-readable data serialization standard."
+    
+  benefits:
+    title: "Benefits of YAML to Markdown Conversion"
+    points:
+      - "Easy to read and write"
+      - "Great for documentation"
+      - "Supports rich formatting"
+      - "Version control friendly"
+
+# Gallery of images
+gallery:
+  - image:
+      src: "https://via.placeholder.com/300x200/E74C3C/FFFFFF?text=Image+1"
+      alt: "Gallery Image 1"
+      width: 300
+    caption: "Example of automatic image handling"
+  
+  - image:
+      src: "https://via.placeholder.com/300x200/2ECC71/FFFFFF?text=Image+2"
+      alt: "Gallery Image 2" 
+      width: 300
+    caption: "Images with custom widths"
+
+# Related links
+related_links:
+  - link:
+      text: "YAML Official Website"
+      url: "https://yaml.org"
+      title: "Learn more about YAML"
+  
+  - link:
+      text: "Markdown Guide"
+      url: "https://markdownguide.org"
+      title: "Comprehensive Markdown reference"
+
+# Code snippet
+example_yaml:
+  code: |
+    # Simple YAML example
+    name: "John Doe"
+    age: 30
+    skills:
+      - Python
+      - JavaScript
+      - Docker
+  language: "yaml"
+
+# Call to action
+call_to_action:
+  text: "Try the converter yourself!"
+  link:
+    text: "Download Now"
+    url: "https://github.com/devplaybooks/spark4/releases"

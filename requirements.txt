@@ -1,0 +1,3 @@
+# Runtime dependencies (Spark, Jupyter, PySpark) are provided by the Docker image.
+# This file covers local development and testing only.
+pytest

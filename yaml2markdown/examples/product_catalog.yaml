@@ -1,0 +1,91 @@
+# Product Catalog
+catalog_info:
+  name: "Tech Products 2025"
+  description: "Latest technology products with detailed specifications"
+  last_updated: "2025-12-01"
+
+# Product listings
+products:
+  - name: "SmartPhone Pro"
+    price: "$999"
+    category: "Mobile"
+    image:
+      src: "https://via.placeholder.com/250x250/1ABC9C/FFFFFF?text=Phone"
+      alt: "SmartPhone Pro"
+      width: 250
+    features:
+      - "6.7-inch display"
+      - "128GB storage"
+      - "Triple camera system"
+    link:
+      text: "View Details"
+      url: "https://example.com/smartphone-pro"
+  
+  - name: "Laptop Ultra"
+    price: "$1,299"
+    category: "Computing"
+    image:
+      src: "https://via.placeholder.com/250x250/3498DB/FFFFFF?text=Laptop"
+      alt: "Laptop Ultra"
+      width: 250
+    features:
+      - "16GB RAM"
+      - "512GB SSD"
+      - "14-inch screen"
+    link:
+      text: "View Details"
+      url: "https://example.com/laptop-ultra"
+  
+  - name: "Wireless Headphones"
+    price: "$299"
+    category: "Audio"
+    image:
+      src: "https://via.placeholder.com/250x250/E74C3C/FFFFFF?text=Headphones"
+      alt: "Wireless Headphones"
+      width: 250
+    features:
+      - "Noise cancellation"
+      - "30-hour battery"
+      - "Premium sound quality"
+    link:
+      text: "View Details"
+      url: "https://example.com/headphones"
+
+# Categories with statistics
+categories:
+  - name: "Mobile"
+    count: 15
+    avg_price: "$750"
+    top_seller: "SmartPhone Pro"
+  - name: "Computing" 
+    count: 8
+    avg_price: "$1,200"
+    top_seller: "Laptop Ultra"
+  - name: "Audio"
+    count: 12
+    avg_price: "$150"
+    top_seller: "Wireless Headphones"
+
+# Store information
+store_info:
+  name: "TechMart"
+  contact:
+    phone: "+1-555-0123"
+    email: "info@techmart.com"
+    website:
+      text: "Visit Our Website"
+      url: "https://techmart.com"
+  
+  hours:
+    monday_friday: "9 AM - 8 PM"
+    saturday: "10 AM - 6 PM" 
+    sunday: "12 PM - 5 PM"
+
+# Promotional banner
+promotion:
+  image:
+    src: "https://via.placeholder.com/600x200/F39C12/FFFFFF?text=SALE+20%25+OFF"
+    alt: "Sale banner"
+    width: 600
+  description: "Limited time offer - 20% off on all products!"
+  terms: "Offer valid until December 31, 2025. Terms and conditions apply."

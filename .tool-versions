@@ -1,0 +1,7 @@
+coursier 2.1.24
+nodejs 24.2.0
+java openjdk-21.0.2
+python miniconda3-3.12-25.1.1-2
+sbt 1.9.9
+scala 2.13.16
+spark 4.0.0

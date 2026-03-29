@@ -1,0 +1,131 @@
+# Basic Project Documentation
+title: "YAML to Markdown Converter"
+description: "A comprehensive project documentation example"
+version: "1.0.0"
+authors:
+  - name: "Christopher Baker"
+    email: "christopher.baker@example.com"
+    role: "Lead Developer"
+  - name: "Jane Smith"
+    email: "jane.smith@example.com" 
+    role: "Documentation Lead"
+
+# Project Overview
+overview:
+  summary: "This tool converts YAML files to beautifully formatted Markdown documents with support for images, links, and rich content."
+  features:
+    - "Automatic link detection and formatting"
+    - "Image embedding with customizable dimensions"
+    - "Table generation from structured data"
+    - "Code block formatting"
+    - "Quote and blockquote support"
+
+# Links and References
+links:
+  repository:
+    text: "GitHub Repository"
+    url: "https://github.com/devplaybooks/spark4"
+    title: "View source code"
+  documentation:
+    text: "Full Documentation"
+    url: "https://docs.example.com/yaml2markdown"
+  issues:
+    text: "Report Issues"
+    url: "https://github.com/devplaybooks/spark4/issues"
+
+# Images and Media
+images:
+  logo:
+    src: "https://via.placeholder.com/300x150/4A90E2/FFFFFF?text=YAML2MD"
+    alt: "YAML to Markdown Converter Logo"
+    title: "Project Logo"
+    width: 300
+    caption: "Official project logo"
+  
+  architecture:
+    src: "https://via.placeholder.com/600x400/E94B3C/FFFFFF?text=Architecture+Diagram"
+    alt: "System Architecture"
+    width: 600
+    description: "System architecture overview showing the conversion process"
+
+# Code Examples
+code_examples:
+  python_usage:
+    code: |
+      from yaml2markdown import YamlToMarkdownConverter
+      
+      converter = YamlToMarkdownConverter(image_width=400)
+      markdown = converter.convert_file('input.yaml', 'output.md')
+      print("Conversion completed!")
+    language: "python"
+  
+  cli_usage:
+    code: |
+      # Convert YAML to Markdown
+      yaml2markdown input.yaml -o output.md --width 500
+      
+      # Preview conversion
+      yaml2markdown preview -f input.yaml
+      
+      # Validate YAML file
+      yaml2markdown validate input.yaml
+    language: "bash"
+
+# Installation Steps
+installation:
+  requirements:
+    - "Python 3.8 or higher"
+    - "pip package manager"
+  
+  steps:
+    - step: "Clone the repository"
+      command: "git clone https://github.com/devplaybooks/spark4.git"
+    - step: "Navigate to project directory"
+      command: "cd spark4/yaml2markdown"
+    - step: "Install dependencies"
+      command: "pip install -r requirements.txt"
+    - step: "Install the package"
+      command: "pip install -e ."
+
+# Team Members with Social Links
+team:
+  - name: "Christopher Baker"
+    role: "Lead Developer"
+    image:
+      src: "https://via.placeholder.com/100x100/34495E/FFFFFF?text=CB"
+      alt: "Christopher Baker"
+      width: 100
+    social:
+      github:
+        text: "GitHub"
+        url: "https://github.com/christopher-baker"
+      linkedin:
+        text: "LinkedIn"
+        url: "https://linkedin.com/in/christopher-baker"
+  
+  - name: "Jane Smith"
+    role: "Documentation Lead"
+    image:
+      src: "https://via.placeholder.com/100x100/9B59B6/FFFFFF?text=JS"
+      alt: "Jane Smith"
+      width: 100
+    social:
+      github:
+        text: "GitHub"
+        url: "https://github.com/jane-smith"
+
+# Quotes and Testimonials
+testimonials:
+  - quote: "This tool has revolutionized how we handle documentation. The automatic formatting saves us hours of work every week."
+    author: "Alex Johnson, Technical Writer"
+  
+  - quote: "The seamless integration of images and links makes our documentation come alive. Highly recommended!"
+    author: "Sarah Davis, Product Manager"
+
+# License Information
+license:
+  type: "MIT License"
+  link:
+    text: "View License"
+    url: "https://opensource.org/licenses/MIT"
+  description: "This project is licensed under the MIT License - see the LICENSE file for details."
