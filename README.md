@@ -1,12 +1,9 @@
-[![Build and Test](https://github.com/devplaybooks/spark4/actions/workflows/CI.yml/badge.svg)](https://github.com/devplaybooks/spark4/actions/workflows/CI.yml)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
-[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](LICENSE-APACHE)
+[![Build and Test](https://github.com/ImperialBower/pknotebook/actions/workflows/CI.yml/badge.svg)](https://github.com/ImperialBower/pknotebook/actions/workflows/CI.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE-GPLv3)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE-MIT)
 
 ---
 
-# Jupyter All Spark Notebook
+# Jupyter All Spark Poker Notebook
 
 A [Docker Compose](https://docs.docker.com/compose/)
 [Jupyter notebook](https://docs.jupyter.org/en/latest/) image with
@@ -38,32 +35,6 @@ Access JupyterLab at http://localhost:8888
 ## Rust Integration
 
 This image includes Rust support for building high-performance extensions and working with Rust alongside PySpark. See [RUST_SUPPORT.md](RUST_SUPPORT.md) for detailed documentation.
-
-## Contributing
-
-### Prerequisites
-
-Install [asdf](https://asdf-vm.com/), then add the required plugins and install all tool versions:
-
-```shell
-asdf plugin add python
-asdf plugin add java
-asdf plugin add nodejs
-asdf plugin add scala
-asdf plugin add spark
-asdf plugin add sbt
-asdf plugin add coursier
-asdf install
-```
-
-This will provision the exact versions defined in `.tool-versions`.
-
-### Running Tests
-
-```shell
-pip install -r requirements.txt
-pytest
-```
 
 ### Running Locally with Docker
 
