@@ -26,6 +26,10 @@ docker-compose up -d
 
 Access JupyterLab at http://localhost:8888
 
+## Makefile
+
+A `Makefile` is provided for common Docker build and lifecycle tasks. Run `make` to see all available targets, or `make ayce` to build and validate the image in one step.
+
 ## Features
 
 - **Python & PySpark**: Full data processing and analysis with Apache Spark
