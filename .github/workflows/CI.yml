@@ -42,5 +42,5 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Smoke test pkpy import
-        run: docker run --rm folkengine/pknotebook:ci python -c "import pkpy; print('pkpy OK')"
+      - name: Smoke test pkcore import
+        run: docker run --rm folkengine/pknotebook:ci python -c "import pkcore; print('pkcore OK')"

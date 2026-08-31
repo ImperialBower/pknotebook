@@ -7,7 +7,7 @@ This document describes the layers that make up the `folkengine/pknotebook` Dock
 ```
 folkengine/pknotebook   ← this repo
         │
-        │  adds: pkpy (Python bindings for pkcore)
+        │  adds: pkcore.py (Python bindings for pkcore)
         │
 folkengine/spark4       ← devplaybooks/spark4
         │
@@ -62,15 +62,16 @@ Image: `folkengine/pknotebook:latest`
 Adds a pre-built poker analysis library:
 
 ```dockerfile
-FROM folkengine/spark4:latest
-RUN pip install --no-cache-dir "git+https://github.com/ImperialBower/pkpy.git"
+FROM folkengine/spark4:1.0.2
+RUN pip install --no-cache-dir pkcore.py jupyterquiz
 ```
 
-The `pip install` step:
-1. Clones the `pkpy` repository
-2. Invokes `maturin` as the build backend (declared in pkpy's `pyproject.toml`)
-3. Cargo fetches and compiles `pkcore` as a Rust dependency
-4. Installs the compiled extension into the image's Python environment
+The `pip install` step downloads a pre-built `manylinux` wheel from PyPI and
+installs it into the image's Python environment. No Rust compilation happens at
+image-build time, so the layer is fast.
+
+> The distribution name is `pkcore.py`; the import name is `pkcore`. This is the
+> same convention as `discord.py` → `import discord`.
 
 ---
 
@@ -86,42 +87,55 @@ The core poker engine, written entirely in Rust. Provides:
 - **Simulation** — equity calculation, Monte Carlo runs
 - **Outs calculation** — how many cards improve a given hand
 
-`pkcore` is a pure Rust library with no Python dependency. It is consumed as a Cargo dependency by `pkpy`.
+`pkcore` is a pure Rust library with no Python dependency. It is consumed as a Cargo dependency by `pkcore.py`.
 
 ---
 
-## pkpy
+## pkcore.py
 
-Source: [github.com/ImperialBower/pkpy](https://github.com/ImperialBower/pkpy)
+Source: [github.com/ImperialBower/pkcore.py](https://github.com/ImperialBower/pkcore.py)
 Type: Rust crate + Python package (maturin / PyO3)
+PyPI: [`pkcore.py`](https://pypi.org/project/pkcore.py/) — import name `pkcore`
 
 The Python binding layer for `pkcore`. It exposes `pkcore`'s Rust API to Python using:
 
 - **PyO3** — Rust crate that generates a CPython-compatible extension module
 - **maturin** — build tool that compiles the Rust code and packages the result as a standard Python wheel
 
-`pkpy` declares `pkcore` as a Cargo dependency, wraps selected types and functions with `#[pyclass]` / `#[pyfunction]` attributes, and publishes them under the `pkpy` Python namespace.
+`pkcore.py` declares `pkcore` as a Cargo dependency, wraps selected types and functions with `#[pyclass]` / `#[pyfunction]` attributes, and publishes them under the `pkcore` Python namespace. The compiled extension module is `pkcore._pkcore`; `python/pkcore/__init__.py` re-exports it so notebooks write `from pkcore import Card`.
 
 Once installed, usage in a notebook is straightforward:
 
 ```python
-import pkpy
+import pkcore
 
-# example — exact API depends on pkpy version
-hand = pkpy.Hand.parse("As Ks Qs Js Ts")
-print(hand.rank())
+card = pkcore.Card.parse("As")
+print(card.rank(), card.suit())
 ```
+
+### Renamed from `pkpy`
+
+| | Old | New |
+|---|---|---|
+| GitHub repo | `ImperialBower/pkpy` | `ImperialBower/pkcore.py` |
+| PyPI distribution | `pkpython` | `pkcore.py` |
+| Python import | `import pkpy` | `import pkcore` |
+| Extension module | `pkpy._pkpy` | `pkcore._pkcore` |
+| Last version under old names | `0.9.0` | — |
+| License | `GPL-3.0-or-later` | `MIT OR Apache-2.0` |
+
+The old GitHub URL redirects. `pkpython` on PyPI receives no further releases.
 
 ---
 
 ## Build & Run
 
 ```bash
-docker compose build   # compiles pkpy/pkcore, builds image
+docker compose build   # pulls the pkcore.py wheel, builds image
 docker compose up      # starts JupyterLab on http://localhost:8888
 ```
 
-The first build is slow because Cargo compiles `pkcore` from source. Subsequent builds use Docker layer cache and skip recompilation unless the `pkpy` source changes.
+The build no longer compiles Rust: `pkcore.py` ships pre-built `manylinux` wheels, so `pip` just downloads and unpacks one. Subsequent builds reuse the Docker layer cache and skip the download entirely unless the `Dockerfile` changes.
 
 ---
 
@@ -132,6 +146,6 @@ GitHub Actions runs two jobs on every push and pull request:
 | Job | What it checks |
 |-----|---------------|
 | `test` | Python unit tests via pytest |
-| `docker-build` | Full Docker image build + `import pkpy` smoke test |
+| `docker-build` | Full Docker image build + `import pkcore` smoke test |
 
-The `docker-build` job uses GitHub Actions cache (`type=gha`) to persist Docker layer cache between runs, keeping Rust recompilation rare.
+The `docker-build` job uses GitHub Actions cache (`type=gha`) to persist Docker layer cache between runs.
